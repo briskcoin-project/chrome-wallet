@@ -1,7 +1,7 @@
 {
     "name": "Briskcoin Wallet Extension",
     "version": "1.1",
-    "manifest_version": 3,
+    "manifest_version": 2,
     "description": "Light Web Wallet for Briskcoin as a Chrome Extension.",
     "browser_action": {
         "default_popup": "overlay.html",
