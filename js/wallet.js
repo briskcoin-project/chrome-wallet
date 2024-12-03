@@ -32,7 +32,7 @@ window.onload = function (){
     // Set history page to open to explorer, sets placeholder to testnet or mainnet prefix & sets ticker according to mainnet or testnet
     if (apiget == "mainnet" || apiget == null) {
         api = "https://api.briskcoin.org"
-        prefix = "BC"
+        prefix = "BKC"
         inputPlaceholder.attr("placeholder", "bc1q...")
         href = "https://explorer.briskcoin.org/address/" + getaddress
         $("#history").attr("href", href)
