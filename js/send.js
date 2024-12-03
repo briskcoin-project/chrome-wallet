@@ -21,14 +21,14 @@ window.onload = function() {
 
     // Set history page to open to explorer & sets placeholder to testnet or mainnet prefix
     if (apiget == "mainnet" || apiget == null) {
-        api = "https://api.sugarchain.org"
-        inputPlaceholder.attr("placeholder", "sugar1q...")
-        href = "https://sugarchain.org/explorer/#/address/" + address
+        api =  "https://api.briskcoin.org"
+        inputPlaceholder.attr("placeholder", "bc1q...")
+        href = "https://explorer.briskcoin.org/address/" + address
     }
     else if (apiget == "testnet"){
-        api = "https://api-testnet.sugarchain.org"
-        inputPlaceholder.attr("placeholder", "tugar1q...")
-        href = "https://sugar.wtf/#/address/" + address
+        api = "https://api-test.briskcoin.org"
+        inputPlaceholder.attr("placeholder", "tbc1q...")
+        href = "https://explorer-test.briskcoin.org/address/" + address
     }
     $("#history").attr("href", href)
 
@@ -38,39 +38,39 @@ window.onload = function() {
 var errororsuccess
 function getSendAPI() {
     // Set Network config according to Endpoint selection
-    if (localStorage.getItem("api") == "https://api.sugarchain.org" || localStorage.getItem("api") == null){
+    if (localStorage.getItem("api") == "https://api.briskcoin.org" || localStorage.getItem("api") == null){
         netconfig = {					
            'network': {
-                'messagePrefix': '\x19Sugarchain Signed Message:\n',
+                'messagePrefix': '\x19Briskcoin Signed Message:\n',
                 'bip32': {
                     'public': 0x0488b21e,
                     'private': 0x0488ade4
                 },
-               'bech32': 'sugar',
-               'pubKeyHash': 0x3F,
-               'scriptHash': 0x7D,
-                'wif': 0x80}
+               'bech32': 'bc',
+               'pubKeyHash': 0x19,
+               'scriptHash': 0x21,
+                'wif': 0x99}
         }
     }
       
-    else if (localStorage.getItem("api") == "https://api-testnet.sugarchain.org") {
+    else if (localStorage.getItem("api") == "https://api-testnet.briskcoin.org") {
         netconfig = {					
            'network': {
-                'messagePrefix': '\x19Sugarchain Signed Message:\n',
+                'messagePrefix': '\x19Briskcoin Signed Message:\n',
                 'bip32': {
                     'public': 0x0488b21e,
                     'private': 0x0488ade4
                 },
-               'bech32': 'tugar',
-               'pubKeyHash': 0x42,
-               'scriptHash': 0x80,
+               'bech32': 'tb',
+               'pubKeyHash': 0x6F,
+               'scriptHash': 0xC4,
                 'wif': 0xEF}
         }
     }
 }
 
 $("#sendTx").click(function () {
-    var feeinput = document.getElementById("feeSugar")
+    var feeinput = document.getElementById("feeBkc")
     console.log(feeinput.value)
     var fee = undefined
     var feeShow = undefined
@@ -79,17 +79,17 @@ $("#sendTx").click(function () {
         feeShow = convertAmountFormat(fee)
     }
     else {
-        fee = 1000
+        fee = 10000
         feeShow = convertAmountFormat(fee)
     }
     // Don't put fee in convertion of amount format
-    var amount = convertAmountFormat(parseFloat($("#amountSUGAR").val()), true) + fee
+    var amount = convertAmountFormat(parseFloat($("#amountBKC").val()), true) + fee
     var amountShow = convertAmountFormat(amount)
     var receiver = $("#sendInput").val()
 
     var scripts = []
 
-    ask = confirm("Confirm Transaction. You are about to send " + $("#amountSUGAR").val() + " SUGAR to " + receiver + ". The fee is " + feeShow/*(amountShow - Number($("#amountSUGAR").val()))*/ + " SUGAR\nTotal Cost: " + amountShow + " SUGAR")
+    ask = confirm("Confirm Transaction. You are about to send " + $("#amountBKC").val() + " BKC to " + receiver + ". The fee is " + feeShow/*(amountShow - Number($("#amountBKC").val()))*/ + " BKC\nTotal Cost: " + amountShow + " BKC")
     if (ask == true){
         var showErrororSuccess = $("#showErrororSuccess")
         showErrororSuccess.text("Sending Transaction...")
@@ -221,9 +221,9 @@ function scriptType(script) {
 
 // Reset the values after user sends
 function resetForm() {
-    $("#amountSUGAR").val('')
+    $("#amountBKC").val('')
     $("#sendInput").val('')
-    $("#feeSugar").val('')
+    $("#feeBkc").val('')
 }
 
 // Conversion of standars integer to satoshis
@@ -242,7 +242,7 @@ var lang = {
     'en': {
         // Page text
         'send-to': "Send To: ",
-        'amount-sugar': "Amount: ",
+        'amount-bkc': "Amount: ",
         'sendTx': "Send Transaction",
         'showErrororSuccess': {
             'success': "Success! Transaction ID: ",
@@ -273,7 +273,7 @@ var lang = {
     'fr': {
         // Page text
         'send-to': "Envoyer pour: ",
-        'amount-sugar': "Quantité: ",
+        'amount-bkc': "Quantité: ",
         'sendTx': "Envoyer Transaction",
         'showErrororSuccess': {
             'success': "Succès! Transaction ID: ",
@@ -302,7 +302,7 @@ var lang = {
     'kr': {
         // Page text
         'send-to': "보내다 에게: ",
-        'amount-sugar': "양: ",
+        'amount-bkc': "양: ",
         'sendTx': "보내다 트랜잭션",
         'showErrororSuccess': {
             'success': "성공! 트랜잭션 ID: ",
@@ -331,7 +331,7 @@ var lang = {
     'id': {
         // Page text
         'send-to': "Kirim Untuk: ",
-        'amount-sugar': "Jumlahnya: ",
+        'amount-bkc': "Jumlahnya: ",
         'sendTx': "Kirim Transaksi",
         'showErrororSuccess': {
             'success': "Keberhasilan! Transaksi ID: ",
@@ -360,7 +360,7 @@ var lang = {
     'es': {
         // Page text
         'send-to': "Enviar a: ",
-        'amount-sugar': "Cantidad: ",
+        'amount-bkc': "Cantidad: ",
         'sendTx': "Enviar Transacción",
         'showErrororSuccess': {
             'success': "Éxito! Transacción ID: ",
@@ -389,7 +389,7 @@ var lang = {
     'ru': {
         // Page text
         'send-to': "Отправить к: ",
-        'amount-sugar': "Сумма: ",
+        'amount-bkc': "Сумма: ",
         'sendTx': "Отправить",
         'showErrororSuccess': {
             'success': "Транзакция успешно отправлена: ",
@@ -418,7 +418,7 @@ var lang = {
     'zh': {
         // Page text
         'send-to': "发送至: ",
-        'amount-sugar': "数量: ",
+        'amount-bkc': "数量: ",
         'sendTx': "发送交易",
         'showErrororSuccess': {
             'success': "成功! 交易 ID: ",
@@ -447,7 +447,7 @@ var lang = {
     'ja': {
         // Page text
         'send-to': "に 送る: ",
-        'amount-sugar': "量: ",
+        'amount-bkc': "量: ",
         'sendTx': "送る トランザクション",
         'showErrororSuccess': {
             'success': "成功! トランザクション ID: ",
@@ -479,7 +479,7 @@ function setSendPageLang() {
     if (localStorage['lang'] == null) {
         // Page Text
         $("#send-to").text(lang['en']['send-to'])
-        $("#amount-sugar").text(lang['en']['amount-sugar'])
+        $("#amount-bkc").text(lang['en']['amount-bkc'])
         $("#sendTx").text(lang['en']['sendTx'])
         $("#part1").text(lang['en']['logoutreminder']['part1'])
         $("#logoutlink").text(lang['en']['logoutreminder']['logoutlink'])
@@ -499,7 +499,7 @@ function setSendPageLang() {
     else {
         // Page Text
         $("#send-to").text(lang[localStorage.getItem("lang")]['send-to'])
-        $("#amount-sugar").text(lang[localStorage.getItem("lang")]['amount-sugar'])
+        $("#amount-bkc").text(lang[localStorage.getItem("lang")]['amount-bkc'])
         $("#sendTx").text(lang[localStorage.getItem("lang")]['sendTx'])
         $("#part1").text(lang[localStorage.getItem("lang")]['logoutreminder']['part1'])
         $("#logoutlink").text(lang[localStorage.getItem("lang")]['logoutreminder']['logoutlink'])
