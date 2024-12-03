@@ -1,5 +1,5 @@
 # Briskcoin-Chrome-Wallet
-Light sugarchain Web wallet in the form of a chrome extension which utilises bitcoin.js and a simple REST API https://api.briskcoin.org
+Light Briskcoin Web wallet in the form of a chrome extension which utilises bitcoin.js and a simple REST API https://api.briskcoin.org
 
 
 ### Installation
