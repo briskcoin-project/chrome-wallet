@@ -11,10 +11,10 @@ window.onload = function() {
 
     // Sets History Tab to open to explorer
     if (apiget == "mainnet" || apiget == null) {
-        href = "https://sugarchain.org/explorer/#/address/" + getaddress
+        href = "https://explorer.briskcoin.org/address/" + getaddress
     }
     else if (apiget == "testnet") {
-        href = "https://sugar.wtf/#/address/" + getaddress
+        href = "https://explorer-test.widecoin.org/address/" + getaddress
     }
     $("#history").attr("href", href)
 
@@ -23,32 +23,32 @@ window.onload = function() {
 
 function getImportAPI() {
     // Set Network config according to Endpoint selection
-    if (localStorage.getItem("api") == "https://api.sugarchain.org" || localStorage.getItem("api") == null){
+    if (localStorage.getItem("api") == "https://api.briskcoin.org" || localStorage.getItem("api") == null){
         netconfig = {					
            'network': {
-                'messagePrefix': '\x19Sugarchain Signed Message:\n',
+                'messagePrefix': '\x19Briskcoin Signed Message:\n',
                 'bip32': {
                     'public': 0x0488b21e,
                     'private': 0x0488ade4
                 },
-               'bech32': 'sugar',
-               'pubKeyHash': 0x3F,
-               'scriptHash': 0x7D,
-                'wif': 0x80}
+               'bech32': 'bc',
+               'pubKeyHash': 0x19,
+               'scriptHash': 0x21,
+                'wif': 0x99}
         }
     }
     
-    else if (localStorage.getItem("api") == "https://api-testnet.sugarchain.org") {
+    else if (localStorage.getItem("api") == "https://api-testnet.briskcoin.org") {
         netconfig = {					
             'network': {
-                'messagePrefix': '\x19Sugarchain Signed Message:\n',
+                'messagePrefix': '\x19Briskcoin Signed Message:\n',
                 'bip32': {
-                    'public': 0x0488b21e,
-                    'private': 0x0488ade4
+                    'public': 0x043587CF,
+                    'private': 0x04358394
                 },
-                'bech32': 'tugar',
-                'pubKeyHash': 0x42,
-                'scriptHash': 0x80,
+                'bech32': 'tb',
+                'pubKeyHash': 0x6F,
+                'scriptHash': 0xC4,
                 'wif': 0xEF}
         }
     }
@@ -95,10 +95,10 @@ $("#wifImport").click(function() {
 
     // Sets History Tab to open to explorer
     if (apiget == "mainnet") {
-        href = "https://sugarchain.org/explorer/#/address/" + getaddress
+        href = "https://explorer.widecoin.org/address/" + getaddress
     }
     else if (apiget == "testnet") {
-        href = "https://sugar.wtf/#/address/" + getaddress
+        href = "https://explorer-test.widecoin.org/address/" + getaddress
     }
     $("#history").attr("href", href)
 })

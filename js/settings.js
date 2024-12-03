@@ -14,10 +14,10 @@ window.onload = function() {
 
     // Sets History Tab to open to explorer according to testnet or mainnet
     if (apiget == "mainnet" || apiget == null) {
-        href = "https://sugarchain.org/explorer/#/address/" + getaddress
+        href = "https://explorer.briskcoin.org/address/" + getaddress
     }
     else if (apiget == "testnet"){
-        href = "https://sugar.wtf/#/address/" + getaddress
+        href = "https://explorer-test.briskcoin.org/address/" + getaddress
     }
     $("#history").attr("href", href)
 
@@ -37,8 +37,8 @@ selectedEndpoint.onchange = function () {
     document.location.reload()
 }
 
-var mainnet = "https://api.sugarchain.org"
-var testnet = "https://api-testnet.sugarchain.org"
+var mainnet = "https://api.briskcoin.org"
+var testnet = "https://api-testnet.briskcoin.org"
 // Set the api in local storage
 function setAPI() {
     var apiSet = localStorage.getItem("apiSet")
