@@ -14,9 +14,3 @@ Light Briskcoin Web wallet in the form of a chrome extension which utilises bitc
 8. Clicking the puzzle piece should have opened a small menu. Look for `Briskcoin Wallet Extension` and pin it.
 9. Enjoy using the extension, and remeber to logout before you exit chrome :grin:
 
-
-### TODO:
-
-- [x] Add send function: https://github.com/Nugetzrul3/Sugarchain-Chrome-Wallet/pull/3
-- [x] Fix minor bugs with receiving and sending sugar
-- [x] Publish to chrome webstore!!! Success!!! :grin: https://chrome.google.com/webstore/detail/sugarchain-wallet-extensi/pgojdfajgcjjpjnbpfaelnpnjocakldb
